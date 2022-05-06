@@ -1,0 +1,3 @@
+2022-05-06 09:02:34.686 INFO [main] [common.Log.info(Log.java:13)] - Launching Chrome....
+2022-05-06 09:02:37.464 INFO [main] [common.Log.info(Log.java:13)] - SSSSSSSSSSs
+2022-05-06 09:02:37.488 ERROR [main] [common.Log.error(Log.java:29)] - ssssssss
