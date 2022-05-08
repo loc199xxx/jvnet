@@ -36,16 +36,19 @@ public class BaseSetup {
    // @Parameters({"browserType","appURL"})
     public void initTestBaseSetup(String browserType, String appURL){
         try{
+            Log.info("Truy cập website: "+appURL);
             setDriver(browserType,appURL);
 
+
         }catch (Exception e){
-            System.out.println("Error..."+ e.getStackTrace());
+            Log.error("Có lỗi xảy ra khi truy cập website. "+ appURL);
         }
 
     }
     public WebDriver getDriver(){
         return driver;
     }
+
     private void setDriver(String browserType, String appURL){
         switch (browserType.trim().toLowerCase()) {
             case "firefox":
@@ -55,33 +58,43 @@ public class BaseSetup {
                 driver = initChromeDriver(appURL);
                 break;
             default:
-                System.out.println("Browser: " + browserType + " is invalid, Launching Chrome as browser of choice...");
+                Log.info("Trình duyệt'" + browserType + "' không được hỗ trợ, Khởi chạy trình duyệt Chrome");
                 driver = initChromeDriver(appURL);
         }
     }
 
     private static WebDriver initFirefoxDriver(String appURL){
-        System.out.println("Launching Firefox....");
-        System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver.exe");
-        WebDriver driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to(appURL);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        return driver;
+        try {
+            Log.info("Khởi chạy Firefox...............................");
+            System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver.exe");
+            WebDriver driver = new FirefoxDriver();
+            driver.manage().window().maximize();
+            driver.navigate().to(appURL);
+            driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            return driver;
+        } catch (Exception e){
+            Log.error("Lỗi xảy ra trong quá trình chạy trình duyệt");
+            return null;
+        }
     }
     private static WebDriver initChromeDriver(String appURL){
-        Log.info("Launching Chrome....");
-        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
-       // chromeOptions.addArguments("--no-sandbox");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to(appURL);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        return driver;
+        try {
+            Log.info("Khởi chạy Chrome...............................");
+            System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            //chromeOptions.addArguments("--headless");
+            // chromeOptions.addArguments("--no-sandbox");
+            WebDriver driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.navigate().to(appURL);
+            driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            return driver;
+        }catch (Exception e){
+            Log.error("Lỗi xảy ra trong quá trình chạy trình duyệt");
+            return null;
+        }
     }
     @AfterClass
     public void tearDown()throws Exception{
