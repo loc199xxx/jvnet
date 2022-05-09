@@ -13,31 +13,31 @@ public class Subscribe {
 
     private By btnSubscribe = By.xpath("//span[@class='btn-toggle-register dk_btn']");
     private By titleFormSub= By.xpath("//h4[contains(text(),'Vui lòng điền đầy đủ thông tin vào mẫu bên dưới!')]");
-    private By inpHoVaTen =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Họ và Tên']");
-    private By inpDiaChi =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Địa chỉ']");
-    private By inpSDT =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Số điện thoại']");
-    private By inpEmail =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Email']");
-    private By inpNamSinh =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Năm sinh']");
+    private By inpHoVaTen =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Họ và Tên']");
+    private By inpDiaChi =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Địa chỉ']");
+    private By inpSDT =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Số điện thoại']");
+    private By inpEmail =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Email']");
+    private By inpNamSinh =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Năm sinh']");
     private By dropGioiTinh =By.xpath("//div[@id='wpcf7-f12-o2']//select[@name='menu-749']");
-    private By valueNam =By.xpath("///div[@id='wpcf7-f12-o2']//select[@name='menu-749']//child::option[@value='Nam')]");
-    private By valueNu =By.xpath("///div[@id='wpcf7-f12-o2']//select[@name='menu-749']//child::option[@value='Nữ')]");
 
 
-    private By dropBietQua =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Họ và Tên']");
-    private By inpGhiChu =By.xpath("//form[@class='wpcf7-form init']//input[@placeholder='Họ và Tên']");
-    private By btnSubmitDangky =By.xpath("///form[@class='wpcf7-form init']//input[@value='Đăng ký']");
+
+    private By dropBietQua =By.xpath("//div[@id='wpcf7-f12-o2']//select[@name='menu-991']");
+    private By inpGhiChu =By.xpath("//div[@id='wpcf7-f12-o2']//textarea[@placeholder='Ghi chú']");
+    private By btnSubmitDangky =By.xpath("//div[@id='wpcf7-f12-o2']//input[@value='Đăng ký']");
+
 
     public void ChooseGioiTinh(String gioitinh){
-        commonBase.clickElement(btnSubscribe);
         Select dropGT = new Select(driver.findElement(dropGioiTinh));
         dropGT.selectByValue(gioitinh);
     }
     public void ChoosebietQua(String bietqua){
-        commonBase.clickElement(btnSubscribe);
-        Select dropGT = new Select(driver.findElement(dropGioiTinh));
+
+        Select dropGT = new Select(driver.findElement(dropBietQua));
         dropGT.selectByValue(bietqua);
     }
     public void inputInforamtion(String Hoten, String diachi,String sdt,String email,String namsinh,String gioitinh,String bietqua, String ghichu){
+        commonBase.clickElement(btnSubscribe);
         commonBase.setText(inpHoVaTen,Hoten);
         commonBase.setText(inpDiaChi,diachi);
         commonBase.setText(inpSDT,sdt);
@@ -46,6 +46,11 @@ public class Subscribe {
         ChooseGioiTinh(gioitinh);
         ChoosebietQua(bietqua);
         commonBase.setText(inpGhiChu,ghichu);
-
+    }
+    public void clickSubmit(){
+        commonBase.clickElement(btnSubmitDangky);
+    }
+    public void notifError(String text){
+        commonBase.verifyElementDisplay(By.xpath("//span[contains(text(),\""+text+"\")]"));
     }
 }
