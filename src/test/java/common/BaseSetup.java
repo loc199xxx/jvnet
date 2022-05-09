@@ -81,7 +81,7 @@ public class BaseSetup {
     private static WebDriver initChromeDriver(String appURL){
         try {
             Log.info("Khởi chạy Chrome...............................");
-            System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
             ChromeOptions chromeOptions = new ChromeOptions();
             //chromeOptions.addArguments("--headless");
             // chromeOptions.addArguments("--no-sandbox");

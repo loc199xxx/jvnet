@@ -34,7 +34,9 @@ public class commonBase {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         driver.findElement(element).click();
     }
-
+    public void  verifyElementDisplay(By element){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
     public boolean verifyUrl(String url)
     {
         System.out.println(driver.getCurrentUrl());
@@ -50,14 +52,19 @@ public class commonBase {
     public boolean verifyElementExist(By element){
         //Tạo list lưu tất cả đối tượng WebElement
         List<WebElement> listElement = driver.findElements(element);
-
         int total = listElement.size();
-
         if(total > 0){
             return true;
         }
-
         return false;
+    }
+    public int countElement(By element){
+        int count = 0;
+        List<WebElement> listElement = driver.findElements(element);
+        for (int i = 0; i < listElement.size(); i++){
+            count++;
+        }
+        return count;
     }
     public boolean verifyPageLoaded(String pageLoadedText) {
         waitForPageLoaded();

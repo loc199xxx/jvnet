@@ -1,5 +1,6 @@
 package pages;
 
+import common.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import common.commonBase;
@@ -18,8 +19,8 @@ public class DashBoardPage {
     private By btnQA = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Hỏi & Đáp\")]");
     private By btnLienHe = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Liên Hệ\")]");
 // Cac element locator search
-    private By inpSearch = By.id("input-searchcs");
-    private By btnSearch = By.id("searchsubmit");
+
+
 
 
     public DashBoardPage(WebDriver driver){
@@ -27,31 +28,37 @@ public class DashBoardPage {
         commonBase = new commonBase(this.driver);
 
     }
-
     public String getHomePageTitle(){
         commonBase.waitForPageLoaded();
         String pageTitle = driver.getTitle();
         return pageTitle;
     }
 
-    public void inputAndSearch(String text){
-        commonBase.waitForPageLoaded();
-        commonBase.setText(inpSearch,text);
-        commonBase.clickElement(btnSearch);
+
+
+    public boolean verifyListElementExist(By[] list) {
+        for (int i = 0; list.length > i; i++) {
+            try{
+                commonBase.verifyElementDisplay(list[i]);
+             }catch (Exception e){
+                Log.error("Element trong danh sach ko dc hien thi");
+                return false;
+            }
+        }
+        return true;
     }
-//
-//    public boolean verifyListElementExist(By[] list){
-//        try {
-//            for (int i=0; list.length>i;i++){
-//                commonBase.verifyElementExist(list[i]);
-//            }
-//        }catch (Exception e){
-//            return false;
-//        }
-//        return true;
-//    }
-//    public void checkElementsHomePage(){
-//        By[] list = {btnDonHangDiNhat,btnQA,btnLienHe,btnUuDai,btnTinTuc,btnGioiThieu};
-//        verifyListElementExist(list);
-//    }
+    public boolean checkElementsHomePage(){
+        By[] list = {btnDonHangDiNhat,btnQA,btnLienHe,btnUuDai,btnTinTuc,btnGioiThieu};
+        try {
+            if (verifyListElementExist(list)==true){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e){
+            Log.error("Trang khong hien thi day du cac element");
+            return false;
+        }
+    }
+
 }
