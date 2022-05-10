@@ -1,15 +1,20 @@
 package testcases;
 
 import common.BaseSetup;
+import common.TestListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import common.Log;
 import common.commonBase;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.DashBoardPage;
 
+
+@Listeners(TestListener.class)
 public class DashBoardTest extends BaseSetup {
     private WebDriver driver;
     public DashBoardPage DashBoardPage;
@@ -41,5 +46,9 @@ public class DashBoardTest extends BaseSetup {
         commonBase = new commonBase(driver);
         By banner = By.xpath("//a[@class='fill']//div[@class='fill banner-link']");
         commonBase.verifyElementDisplay(banner);
+    }
+    @AfterClass
+    public void afterDashBoard(){
+        driver.quit();
     }
 }

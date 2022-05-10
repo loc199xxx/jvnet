@@ -27,13 +27,9 @@ public class BaseSetup {
     private WebDriver driver;
     static String driverPath ="src/main/resources/driver/";
     public static String BaseURl ="https://jvnet.vn/";
-    protected int DEFAULT_TIMEOUT = 180000;
-    protected int WAIT_INTERVAL = 1000;
-    public int loopCount = 0;
-    public final int ACTION_REPEAT = 5;
-    public Actions action;
-    //@BeforeTest
-   // @Parameters({"browserType","appURL"})
+
+//    @BeforeSuite
+//    @Parameters({"browserType","appURL"})
     public void initTestBaseSetup(String browserType, String appURL){
         try{
             Log.info("Truy cập website: "+appURL);
@@ -66,12 +62,12 @@ public class BaseSetup {
     private static WebDriver initFirefoxDriver(String appURL){
         try {
             Log.info("Khởi chạy Firefox...............................");
-            System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver");
             WebDriver driver = new FirefoxDriver();
             driver.manage().window().maximize();
             driver.navigate().to(appURL);
             driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             return driver;
         } catch (Exception e){
             Log.error("Lỗi xảy ra trong quá trình chạy trình duyệt");
@@ -89,14 +85,14 @@ public class BaseSetup {
             driver.manage().window().maximize();
             driver.navigate().to(appURL);
             driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             return driver;
         }catch (Exception e){
             Log.error("Lỗi xảy ra trong quá trình chạy trình duyệt");
             return null;
         }
     }
-    @AfterClass
+    @AfterSuite
     public void tearDown()throws Exception{
         Thread.sleep(2000);
         driver.quit();

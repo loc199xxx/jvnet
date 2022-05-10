@@ -30,12 +30,29 @@ public class commonBase {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         driver.findElement(element).sendKeys(value);
     }
-    public void clickElement(By element){
+    public void cleanAndSetText(By element, String value){
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        driver.findElement(element).clear();
+        driver.findElement(element).sendKeys(value);
+    }
+    public void clickElement(By element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
         driver.findElement(element).click();
+    }
+    public void clickElementIfElementExist(By element){
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        boolean check = verifyElementExist(element);
+        if (check==true){
+            driver.findElement(element).click();
+        }
+
     }
     public void  verifyElementDisplay(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+    public void  verifyElementNotDisplay(By element){
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }
     public boolean verifyUrl(String url)
     {

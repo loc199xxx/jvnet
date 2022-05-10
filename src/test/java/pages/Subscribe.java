@@ -12,6 +12,8 @@ public class Subscribe {
     }
 
     private By btnSubscribe = By.xpath("//span[@class='btn-toggle-register dk_btn']");
+    private By iconClose = By.xpath("//button[normalize-space()='×']");
+
     private By titleFormSub= By.xpath("//h4[contains(text(),'Vui lòng điền đầy đủ thông tin vào mẫu bên dưới!')]");
     private By inpHoVaTen =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Họ và Tên']");
     private By inpDiaChi =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Địa chỉ']");
@@ -20,13 +22,18 @@ public class Subscribe {
     private By inpNamSinh =By.xpath("//div[@id='wpcf7-f12-o2']//input[@placeholder='Năm sinh']");
     private By dropGioiTinh =By.xpath("//div[@id='wpcf7-f12-o2']//select[@name='menu-749']");
 
-
-
     private By dropBietQua =By.xpath("//div[@id='wpcf7-f12-o2']//select[@name='menu-991']");
     private By inpGhiChu =By.xpath("//div[@id='wpcf7-f12-o2']//textarea[@placeholder='Ghi chú']");
     private By btnSubmitDangky =By.xpath("//div[@id='wpcf7-f12-o2']//input[@value='Đăng ký']");
 
+    private By notifSuccess = By.xpath("//strong[contains(text(),\"Đăng ký thành công\")]");
 
+    public void waitFormLoaded(){
+        commonBase.verifyElementDisplay(titleFormSub);
+    }
+    public void waitFormClosed(){
+        commonBase.verifyElementNotDisplay(titleFormSub);
+    }
     public void ChooseGioiTinh(String gioitinh){
         Select dropGT = new Select(driver.findElement(dropGioiTinh));
         dropGT.selectByValue(gioitinh);
@@ -37,20 +44,33 @@ public class Subscribe {
         dropGT.selectByValue(bietqua);
     }
     public void inputInforamtion(String Hoten, String diachi,String sdt,String email,String namsinh,String gioitinh,String bietqua, String ghichu){
-        commonBase.clickElement(btnSubscribe);
-        commonBase.setText(inpHoVaTen,Hoten);
-        commonBase.setText(inpDiaChi,diachi);
-        commonBase.setText(inpSDT,sdt);
-        commonBase.setText(inpEmail,email);
-        commonBase.setText(inpNamSinh,namsinh);
+        waitFormLoaded();
+        commonBase.cleanAndSetText(inpHoVaTen,Hoten);
+        commonBase.cleanAndSetText(inpDiaChi,diachi);
+        commonBase.cleanAndSetText(inpSDT,sdt);
+        commonBase.cleanAndSetText(inpEmail,email);
+        commonBase.cleanAndSetText(inpNamSinh,namsinh);
         ChooseGioiTinh(gioitinh);
         ChoosebietQua(bietqua);
         commonBase.setText(inpGhiChu,ghichu);
-    }
-    public void clickSubmit(){
         commonBase.clickElement(btnSubmitDangky);
     }
-    public void notifError(String text){
-        commonBase.verifyElementDisplay(By.xpath("//span[contains(text(),\""+text+"\")]"));
+
+    public boolean SubmitAndVerifyNotif(String text){
+
+        return commonBase.verifyElementExist(By.xpath("//span[contains(text(),\""+text+"\")]"));
+    }
+    public void clickSubscribe(){
+        commonBase.clickElement(btnSubscribe);
+    }
+    public void clickCloseSub() {
+//        boolean check = commonBase.verifyElementExist(notifSuccess);
+//        if (check==false){
+//            driver.findElement(iconClose).click();
+//        }
+        commonBase.clickElement(iconClose);
+    }
+    public boolean subcribeSuccess(String text){
+        return commonBase.verifyElementExist(By.xpath("//strong[contains(text(),\""+text+"\")]"));
     }
 }

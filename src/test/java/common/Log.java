@@ -15,7 +15,6 @@ public class Log {
     public static void info (Object object) {
         Log.info(object);
     }
-
     //Warn Level Logs
     public static void warn (String message) {
         Log.warn(message);
