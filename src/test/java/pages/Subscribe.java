@@ -3,6 +3,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import common.commonBase;
+import org.testng.Assert;
+
 public class Subscribe {
     private WebDriver driver = null;   //khai bao driver
     private commonBase commonBase;
@@ -26,7 +28,7 @@ public class Subscribe {
     private By inpGhiChu =By.xpath("//div[@id='wpcf7-f12-o2']//textarea[@placeholder='Ghi chú']");
     private By btnSubmitDangky =By.xpath("//div[@id='wpcf7-f12-o2']//input[@value='Đăng ký']");
 
-    private By notifSuccess = By.xpath("//strong[contains(text(),\"Đăng ký thành công\")]");
+    private By iconHome = By.id("logo");
 
     public void waitFormLoaded(){
         commonBase.verifyElementDisplay(titleFormSub);
@@ -55,7 +57,6 @@ public class Subscribe {
         commonBase.setText(inpGhiChu,ghichu);
         commonBase.clickElement(btnSubmitDangky);
     }
-
     public boolean SubmitAndVerifyNotif(String text){
 
         return commonBase.verifyElementExist(By.xpath("//span[contains(text(),\""+text+"\")]"));
@@ -64,13 +65,14 @@ public class Subscribe {
         commonBase.clickElement(btnSubscribe);
     }
     public void clickCloseSub() {
-//        boolean check = commonBase.verifyElementExist(notifSuccess);
-//        if (check==false){
-//            driver.findElement(iconClose).click();
-//        }
         commonBase.clickElement(iconClose);
+        commonBase.clickElement(iconHome);
     }
     public boolean subcribeSuccess(String text){
         return commonBase.verifyElementExist(By.xpath("//strong[contains(text(),\""+text+"\")]"));
+    }
+    public void checkSuccessAndBackHome(String text){
+        Assert.assertTrue(subcribeSuccess(text));
+        commonBase.clickElement(iconHome);
     }
 }

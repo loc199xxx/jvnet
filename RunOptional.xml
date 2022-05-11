@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Full_Suite_Test">
+    <parameter name="browserType" value="firefox"></parameter>
+    <test name="Run Options" parallel="classes" thread-count="3">
+        <classes>
+            <class name="testcases.DashBoardTest"/>
+<!--            <class name="testcases.SearchTest"/>-->
+<!--            <class name="testcases.SubscribeTest"/>-->
+        </classes>
+    </test>
+</suite>

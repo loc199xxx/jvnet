@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Full_Suite_Test" parallel="tests" thread-count="3">
+    <test name="DashBoardTest" >
+        <parameter name="browserType" value="firefox"></parameter>
+        <classes>
+            <class name="testcases.DashBoardTest"/>
+        </classes>
+    </test>
+    <test name="Subscribe" >
+        <parameter name="browserType" value="chrome"></parameter>
+        <classes>
+            <class name="testcases.SubscribeTest"/>
+        </classes>
+    </test>
+    <test name="Search" >
+        <parameter name="browserType" value="firefox"></parameter>
+        <classes>
+            <class name="testcases.SearchTest"/>
+        </classes>
+    </test>
+</suite>

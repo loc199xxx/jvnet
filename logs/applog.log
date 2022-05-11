@@ -1,28 +1,58 @@
-[INFO ] 10-05-2022 17:41:31 [main] Log - Bắt đầu thực hiện quá trình AutoTest
-[INFO ] 10-05-2022 17:41:31 [main] Log - Truy cập website: https://jvnet.vn/
-[INFO ] 10-05-2022 17:41:31 [main] Log - Khởi chạy Firefox...............................
-[INFO ] 10-05-2022 17:41:36 [main] Log - Đang chạy TC012: Bỏ trống trường Họ và Tên
-[INFO ] 10-05-2022 17:41:37 [main] Log - =======> TEST CASE: TC012_BoTrongHoVaTen PASS
-[INFO ] 10-05-2022 17:41:38 [main] Log - Đang chạy TC013: Nhập toàn space trường Họ và Tên
-[INFO ] 10-05-2022 17:41:39 [main] Log - =======> TEST CASE: TC013_NhapToanSpace PASS
-[INFO ] 10-05-2022 17:41:39 [main] Log - Đang chạy TC014: Nhập space đầu cuối trường Họ và Tên
-[INFO ] 10-05-2022 17:41:41 [main] Log - =======> TEST CASE: TC014_NhapSpaceDauCuoi PASS
-[INFO ] 10-05-2022 17:41:42 [main] Log - Đang chạy TC015: Nhập số trường Họ và Tên
-[INFO ] 10-05-2022 17:41:44 [main] Log - =======> TEST CASE: TC015_NhapSo PASS
-[INFO ] 10-05-2022 17:41:44 [main] Log - Đang chạy TC016: Nhập chữ trường Họ và Tên
-[INFO ] 10-05-2022 17:41:47 [main] Log - =======> TEST CASE: TC016_NhapChu PASS
-[INFO ] 10-05-2022 17:41:47 [main] Log - Đang chạy TC017: nhập ký tự đặc biệt trường Họ và Tên
-[ERROR] 10-05-2022 17:41:59 [main] Log - =======> TEST CASE: TC017_NhapKyTuDacBiet FAIL
-[INFO ] 10-05-2022 17:42:00 [main] Log - Đang chạy TC019: Bỏ trống trường địa chỉ
-[INFO ] 10-05-2022 17:42:01 [main] Log - =======> TEST CASE: TC019_BoTrongDiaChi PASS
-[INFO ] 10-05-2022 17:42:01 [main] Log - Đang chạy TC020: Nhập toàn space trường địa chỉ
-[INFO ] 10-05-2022 17:42:02 [main] Log - =======> TEST CASE: TC020_NhapSpaceDiaChi PASS
-[INFO ] 10-05-2022 17:42:03 [main] Log - Đang chạy TC021: Nhập toàn space trường địa chỉ
-[INFO ] 10-05-2022 17:42:04 [main] Log - =======> TEST CASE: TC021_NhapSpaceDiaChi PASS
-[INFO ] 10-05-2022 17:42:04 [main] Log - Đang chạy TC022: Nhập Nhập space đầu cuối trường địa chỉ
-[INFO ] 10-05-2022 17:42:06 [main] Log - =======> TEST CASE: TC022_NhapSpaceDauCuoiDiaChi PASS
-[INFO ] 10-05-2022 17:42:06 [main] Log - Đang chạy TC023: Nhập nhập số vao trường địa chỉ
-[INFO ] 10-05-2022 17:42:08 [main] Log - =======> TEST CASE: TC023_NhapSoVaoDiaChi PASS
-[INFO ] 10-05-2022 17:42:09 [main] Log - Đang chạy TC024: Nhập nhập chữ trường địa chỉ
-[ERROR] 10-05-2022 17:42:19 [main] Log - =======> TEST CASE: TC024_NhapSpaceDiaChi FAIL
-[INFO ] 10-05-2022 17:42:19 [main] Log - Kết thúc quá trình AutoTest
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-3] Log - Bắt đầu thực hiện quá trình AutoTest
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-1] Log - Bắt đầu thực hiện quá trình AutoTest
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-2] Log - Bắt đầu thực hiện quá trình AutoTest
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-3] Log - Truy cập website: https://jvnet.vn/
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-1] Log - Truy cập website: https://jvnet.vn/
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-3] Log - Khởi chạy Firefox...............................
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-2] Log - Truy cập website: https://jvnet.vn/
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-2] Log - Khởi chạy Chrome...............................
+[INFO ] 11-05-2022 10:39:24 [TestNG-tests-1] Log - Khởi chạy Firefox...............................
+[INFO ] 11-05-2022 10:39:28 [TestNG-tests-2] Log - Đang chạy TC012: Bỏ trống trường Họ và Tên
+[INFO ] 11-05-2022 10:39:31 [TestNG-tests-1] Log - Đang chạy TC001: Kiểm tra tiêu đề của trang web
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-1] Log - =======> TEST CASE: TC001_KiemTraTieuDeTrang PASS
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-1] Log - Đang chạy TC002: Kiểm tra các mục có trên header
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-1] Log - =======> TEST CASE: TC002_KiemTraCacMucCoTrenHeader PASS
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-1] Log - Đang chạy TC003: Kiểm tra banner quảng cáo
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-1] Log - =======> TEST CASE: TC003_KiemTraHienThiBanner PASS
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-2] Log - =======> TEST CASE: TC012_BoTrongHoVaTen PASS
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-2] Log - Đang chạy TC013: Nhập toàn space trường Họ và Tên
+[INFO ] 11-05-2022 10:39:32 [TestNG-tests-3] Log - Đang chạy TC004: Bỏ trống và ấn tìm kiếm
+[INFO ] 11-05-2022 10:39:33 [TestNG-tests-1] Log - Kết thúc quá trình AutoTest
+[INFO ] 11-05-2022 10:39:34 [TestNG-tests-3] Log - =======> TEST CASE: TC004_BoTrongVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:34 [TestNG-tests-3] Log - Đang chạy TC005: Nhập toàn Space
+[INFO ] 11-05-2022 10:39:35 [TestNG-tests-2] Log - =======> TEST CASE: TC013_NhapToanSpace PASS
+[INFO ] 11-05-2022 10:39:35 [TestNG-tests-2] Log - Đang chạy TC014: Nhập space đầu cuối trường Họ và Tên
+[INFO ] 11-05-2022 10:39:36 [TestNG-tests-3] Log - =======> TEST CASE: TC005_NhapSpaceVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:36 [TestNG-tests-3] Log - Đang chạy TC006: Nhập space đầu cuối chuỗi kí tự
+[INFO ] 11-05-2022 10:39:38 [TestNG-tests-3] Log - =======> TEST CASE: TC006_SpaceDauCuoiVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:38 [TestNG-tests-3] Log - Đang chạy TC007: Nhập kí tự đặc biệt
+[INFO ] 11-05-2022 10:39:39 [TestNG-tests-2] Log - =======> TEST CASE: TC014_NhapSpaceDauCuoi PASS
+[INFO ] 11-05-2022 10:39:39 [TestNG-tests-2] Log - Đang chạy TC015: Nhập số trường Họ và Tên
+[INFO ] 11-05-2022 10:39:40 [TestNG-tests-3] Log - =======> TEST CASE: TC007_NhapKyTuDacBietVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:40 [TestNG-tests-3] Log - Đang chạy TC008: Nhập số
+[INFO ] 11-05-2022 10:39:41 [TestNG-tests-3] Log - =======> TEST CASE: TC008_NhapSoVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:41 [TestNG-tests-3] Log - Đang chạy TC009: Nhập 1 chữ cái
+[INFO ] 11-05-2022 10:39:42 [TestNG-tests-2] Log - =======> TEST CASE: TC015_NhapSo PASS
+[INFO ] 11-05-2022 10:39:43 [TestNG-tests-2] Log - Đang chạy TC016: Nhập chữ trường Họ và Tên
+[INFO ] 11-05-2022 10:39:43 [TestNG-tests-3] Log - =======> TEST CASE: TC009_NhapMotChuCaiVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:43 [TestNG-tests-3] Log - Đang chạy TC010: Nhập chuỗi kí tự
+[INFO ] 11-05-2022 10:39:45 [TestNG-tests-3] Log - =======> TEST CASE: TC010_NhapChuoiKyTuVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:45 [TestNG-tests-3] Log - Đang chạy TC011: Nhập tiếng việt
+[INFO ] 11-05-2022 10:39:46 [TestNG-tests-2] Log - =======> TEST CASE: TC016_NhapChu PASS
+[INFO ] 11-05-2022 10:39:46 [TestNG-tests-2] Log - Đang chạy TC017: nhập ký tự đặc biệt trường Họ và Tên
+[INFO ] 11-05-2022 10:39:47 [TestNG-tests-3] Log - =======> TEST CASE: TC011_NhapTiengVietVaTimKiem PASS
+[INFO ] 11-05-2022 10:39:47 [TestNG-tests-3] Log - Kết thúc quá trình AutoTest
+[ERROR] 11-05-2022 10:39:57 [TestNG-tests-2] Log - =======> TEST CASE: TC017_NhapKyTuDacBiet FAIL
+[INFO ] 11-05-2022 10:39:58 [TestNG-tests-2] Log - Đang chạy TC018: Bỏ trống trường địa chỉ
+[INFO ] 11-05-2022 10:39:59 [TestNG-tests-2] Log - =======> TEST CASE: TC018_BoTrongDiaChi PASS
+[INFO ] 11-05-2022 10:39:59 [TestNG-tests-2] Log - Đang chạy TC019: Nhập toàn space trường địa chỉ
+[INFO ] 11-05-2022 10:40:01 [TestNG-tests-2] Log - =======> TEST CASE: TC019_NhapSpaceDiaChi PASS
+[INFO ] 11-05-2022 10:40:01 [TestNG-tests-2] Log - Đang chạy TC020: Nhập space đầu cuối trường địa chỉ
+[INFO ] 11-05-2022 10:40:05 [TestNG-tests-2] Log - =======> TEST CASE: TC020_NhapSpaceDauCuoi PASS
+[INFO ] 11-05-2022 10:40:05 [TestNG-tests-2] Log - Đang chạy TC021: nhập số trường địa chỉ
+[INFO ] 11-05-2022 10:40:08 [TestNG-tests-2] Log - =======> TEST CASE: TC021_NhapSoVaoDiaChi PASS
+[INFO ] 11-05-2022 10:40:08 [TestNG-tests-2] Log - Đang chạy TC022: nhập chữ vao trường địa chỉ
+[INFO ] 11-05-2022 10:40:11 [TestNG-tests-2] Log - =======> TEST CASE: TC022_NhapChuVaoDiaChi PASS
+[INFO ] 11-05-2022 10:40:12 [TestNG-tests-2] Log - Đang chạy TC023: nhập ký tự đặc biệt trường địa chỉ
+[INFO ] 11-05-2022 10:40:15 [TestNG-tests-2] Log - =======> TEST CASE: TC023_NhapKyTuDacBietVaoDiaChi PASS
+[INFO ] 11-05-2022 10:40:15 [TestNG-tests-2] Log - Kết thúc quá trình AutoTest

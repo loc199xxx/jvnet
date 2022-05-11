@@ -29,15 +29,15 @@ public class BaseSetup {
     public static String BaseURl ="https://jvnet.vn/";
 
 //    @BeforeSuite
-//    @Parameters({"browserType","appURL"})
-    public void initTestBaseSetup(String browserType, String appURL){
+//    @Parameters({"browserType"})
+    public void initTestBaseSetup(String browserType){
         try{
-            Log.info("Truy cập website: "+appURL);
-            setDriver(browserType,appURL);
+            Log.info("Truy cập website: "+BaseURl);
+            setDriver(browserType,BaseURl);
 
 
         }catch (Exception e){
-            Log.error("Có lỗi xảy ra khi truy cập website. "+ appURL);
+            Log.error("Có lỗi xảy ra khi truy cập website. "+ BaseURl);
         }
 
     }

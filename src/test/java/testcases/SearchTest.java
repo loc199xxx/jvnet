@@ -18,16 +18,18 @@ public class SearchTest extends BaseSetup {
     public pages.SearchPage SearchPage;
     public commonBase commonBase;
 
+
     @BeforeClass
-    public void setUp(){
-        initTestBaseSetup("chrome",BaseURl);
+    @Parameters("browserType")
+    public void setUp(String browserType){
+        initTestBaseSetup(browserType);
         driver=getDriver();
     }
     @AfterClass
     public void afterSearch(){
         driver.quit();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC004_BoTrongVaTimKiem(){
         Log.info("Đang chạy TC004: Bỏ trống và ấn tìm kiếm");
         SearchPage= new SearchPage(driver);
@@ -36,7 +38,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KiemTraSoLuongTinTuc(12);
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC005_NhapSpaceVaTimKiem() {
         Log.info("Đang chạy TC005: Nhập toàn Space");
         SearchPage = new SearchPage(driver);
@@ -45,7 +47,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KiemTraSoLuongTinTuc(12);
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC006_SpaceDauCuoiVaTimKiem() {
         Log.info("Đang chạy TC006: Nhập space đầu cuối chuỗi kí tự");
         SearchPage = new SearchPage(driver);
@@ -54,7 +56,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KiemTraSoLuongTinTuc(12);
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC007_NhapKyTuDacBietVaTimKiem() {
         Log.info("Đang chạy TC007: Nhập kí tự đặc biệt");
         SearchPage = new SearchPage(driver);
@@ -63,7 +65,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KhongCoTinTuc();
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC008_NhapSoVaTimKiem() {
         Log.info("Đang chạy TC008: Nhập số");
         SearchPage = new SearchPage(driver);
@@ -72,7 +74,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KhongCoTinTuc();
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC009_NhapMotChuCaiVaTimKiem() {
         Log.info("Đang chạy TC009: Nhập 1 chữ cái");
         SearchPage = new SearchPage(driver);
@@ -81,7 +83,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KiemTraSoLuongTinTuc(12);
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC010_NhapChuoiKyTuVaTimKiem(){
         Log.info("Đang chạy TC010: Nhập chuỗi kí tự");
         SearchPage = new SearchPage(driver);
@@ -90,7 +92,7 @@ public class SearchTest extends BaseSetup {
         SearchPage.KiemTraSoLuongTinTuc(12);
         SearchPage.cleanInpSearch();
     }
-    @Test(groups = {"search"})
+    @Test(groups = {"search","validate"})
     public void TC011_NhapTiengVietVaTimKiem(){
         Log.info("Đang chạy TC011: Nhập tiếng việt");
         SearchPage = new SearchPage(driver);
