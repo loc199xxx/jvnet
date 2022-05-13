@@ -12,30 +12,28 @@ import java.util.List;
 public class DashBoardPage {
     private WebDriver driver = null;   //khai bao driver
     private commonBase commonBase;
+    // Cac element locator search
     private By btnGioiThieu = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Đơn Hàng Đi Nhật\")]");
     private By btnDonHangDiNhat =By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Ưu Đãi\")]");
     private By btnUuDai = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Ưu Đãi\")]");
     private By btnTinTuc = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Tin Tức – Sự Kiện\")]");
     private By btnQA = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Hỏi & Đáp\")]");
     private By btnLienHe = By.xpath("//*[@class=\"nav-top-link\"][contains(text(),\"Liên Hệ\")]");
-// Cac element locator search
 
 
-
-
+    // ham khoi tao
     public DashBoardPage(WebDriver driver){
         this.driver=driver;
         commonBase = new commonBase(this.driver);
 
     }
+    // lay tieu de trang
     public String getHomePageTitle(){
         commonBase.waitForPageLoaded();
         String pageTitle = driver.getTitle();
         return pageTitle;
     }
-
-
-
+    // Ham kiem tra phan tu duoc hien thi
     public boolean verifyListElementExist(By[] list) {
         for (int i = 0; list.length > i; i++) {
             try{
@@ -47,6 +45,7 @@ public class DashBoardPage {
         }
         return true;
     }
+    // ham kiem tra hien thi theo List
     public boolean checkElementsHomePage(){
         By[] list = {btnDonHangDiNhat,btnQA,btnLienHe,btnUuDai,btnTinTuc,btnGioiThieu};
         try {

@@ -19,20 +19,24 @@ public class SearchPage {
         this.driver=driver;
         commonBase = new commonBase(this.driver);
     }
+    // nhap va search
     public void inputAndSearch(String text){
         commonBase.waitForPageLoaded();
         commonBase.setText(inpSearch,text);
         commonBase.clickElement(btnSearch);
     }
+
     public void clickSearch(){
         commonBase.clickElement(btnSearch);
     }
     public void KhongCoTinTuc(){
         commonBase.verifyElementDisplay(nothingFound);
     }
+    // kiem tra so luong tin tuc
     public void KiemTraSoLuongTinTuc(int soluong){
         Assert.assertEquals(commonBase.countElement(tintuc),soluong);
     }
+    // clean search input
     public void cleanInpSearch(){
         commonBase.clearText(inpSearch);
     }

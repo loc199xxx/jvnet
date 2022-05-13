@@ -1,6 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Full_Suite_Test">
-    <test name="SuiteTest" parallel="classes" thread-count="3">
+    <test name="SuiteTest">
+        <parameter name="browserType" value="chrome"></parameter>
         <classes>
             <class name="testcases.DashBoardTest"/>
             <class name="testcases.SearchTest"/>

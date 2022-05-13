@@ -20,25 +20,25 @@ public class DashBoardTest extends BaseSetup {
     @BeforeClass
     @Parameters("browserType")
     public void setUp(String browserType){
-        initTestBaseSetup(browserType);
+        initTestBaseSetup(browserType);   // Neu muon chay tung testcase doi browserType=   "chrome"
         driver=getDriver();
     }
-    @Test(groups = {"home"})
+    @Test
     public void TC001_KiemTraTieuDeTrang(){
-        Log.info("Đang chạy TC001: Kiểm tra tiêu đề của trang web");
+        Log.info("Đang chạy TC001: Kiểm tra tiêu đề của trang web");  //ghi log
         DashBoardPage = new DashBoardPage(driver);
         String title_exp = "JVNET - Công Ty Xuất Khẩu Lao Động Nhật Bản UY Tín";
         String title = DashBoardPage.getHomePageTitle();
-        Assert.assertEquals(title,title_exp);
+        Assert.assertEquals(title,title_exp); // so sanh tieu de vs kq mong muon
     }
-    @Test(groups = {"home"})
+    @Test
     public void TC002_KiemTraCacMucCoTrenHeader(){
         Log.info("Đang chạy TC002: Kiểm tra các mục có trên header");
         DashBoardPage = new DashBoardPage(driver);
         Assert.assertTrue(DashBoardPage.checkElementsHomePage());
 
     }
-    @Test(groups = {"home"})
+    @Test
     public void TC003_KiemTraHienThiBanner(){
         Log.info("Đang chạy TC003: Kiểm tra banner quảng cáo");
         commonBase = new commonBase(driver);

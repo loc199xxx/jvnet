@@ -40,11 +40,14 @@ public class Subscribe {
         Select dropGT = new Select(driver.findElement(dropGioiTinh));
         dropGT.selectByValue(gioitinh);
     }
+    // ham chon
     public void ChoosebietQua(String bietqua){
 
         Select dropGT = new Select(driver.findElement(dropBietQua));
         dropGT.selectByValue(bietqua);
     }
+
+    // Ham hien cac thong tin trong Form
     public void inputInforamtion(String Hoten, String diachi,String sdt,String email,String namsinh,String gioitinh,String bietqua, String ghichu){
         waitFormLoaded();
         commonBase.cleanAndSetText(inpHoVaTen,Hoten);
@@ -57,20 +60,26 @@ public class Subscribe {
         commonBase.setText(inpGhiChu,ghichu);
         commonBase.clickElement(btnSubmitDangky);
     }
+    // kiem tra thong bao validate
     public boolean SubmitAndVerifyNotif(String text){
 
         return commonBase.verifyElementExist(By.xpath("//span[contains(text(),\""+text+"\")]"));
     }
+    // an dang ky
     public void clickSubscribe(){
         commonBase.clickElement(btnSubscribe);
     }
+
+    // dong form
     public void clickCloseSub() {
         commonBase.clickElement(iconClose);
         commonBase.clickElement(iconHome);
     }
+    // kiem tra thong bao thanh cong
     public boolean subcribeSuccess(String text){
         return commonBase.verifyElementExist(By.xpath("//strong[contains(text(),\""+text+"\")]"));
     }
+    // tro ve man Home
     public void checkSuccessAndBackHome(String text){
         Assert.assertTrue(subcribeSuccess(text));
         commonBase.clickElement(iconHome);

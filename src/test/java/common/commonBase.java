@@ -20,52 +20,37 @@ public class commonBase {
         driver = _driver;
         wait = new WebDriverWait(driver,10);
     }
-
+    // ham clean text
     public void clearText(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         driver.findElement(element).clear();
     }
-
+    // ham nhap text
     public void setText(By element, String value){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         driver.findElement(element).sendKeys(value);
     }
+    // ham clean text va nhap text
     public void cleanAndSetText(By element, String value){
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         driver.findElement(element).clear();
         driver.findElement(element).sendKeys(value);
     }
+    // ham click vao doi tuong
     public void clickElement(By element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
         driver.findElement(element).click();
     }
-    public void clickElementIfElementExist(By element){
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        boolean check = verifyElementExist(element);
-        if (check==true){
-            driver.findElement(element).click();
-        }
-
-    }
+    // Ham kiem tra phan tu da hien thi
     public void  verifyElementDisplay(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
+    // Ham kiem tra phan tu khong hien thi
     public void  verifyElementNotDisplay(By element){
         wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }
-    public boolean verifyUrl(String url)
-    {
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(url);
-
-        return driver.getCurrentUrl().contains(url); //True/False
-    }
-    public boolean verifyElementText(By element, String textValue){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        return driver.findElement(element).getText().equals(textValue); //True/False
-    }
-
+    // Ham kiem tra phan tu xuat hien
     public boolean verifyElementExist(By element){
         //Tạo list lưu tất cả đối tượng WebElement
         List<WebElement> listElement = driver.findElements(element);
@@ -75,6 +60,7 @@ public class commonBase {
         }
         return false;
     }
+    // ham dem so luong phan tu
     public int countElement(By element){
         int count = 0;
         List<WebElement> listElement = driver.findElements(element);
@@ -83,20 +69,8 @@ public class commonBase {
         }
         return count;
     }
-    public boolean verifyPageLoaded(String pageLoadedText) {
-        waitForPageLoaded();
-        Boolean res = false;
 
-        List<WebElement> elementList = driver.findElements(By.xpath("//*[contains(text(),'" + pageLoadedText + "')]"));
-        if (elementList.size() > 0) {
-            res = true;
-            System.out.println("Page loaded (" + res + "): " + pageLoadedText);
-        } else {
-            res = false;
-            System.out.println("Page loaded (" + res + "): " + pageLoadedText);
-        }
-        return res;
-    }
+    // Ham tro cho Website load xong
     public void waitForPageLoaded(){
 
         // wait for Javascript to loaded

@@ -5,17 +5,15 @@ import org.apache.logging.log4j.Logger;
 
 
 public class Log {
-    //Initialize Log4j instance
+    // Ham khoi tao Log
     private static final Logger Log =  LogManager.getLogger(Log.class);
 
-    //Info Level Logs
+    // Ham ghi log INFO
     public static void info (String message) {
         Log.info(message);
     }
-    public static void info (Object object) {
-        Log.info(object);
-    }
-    //Warn Level Logs
+
+    // Ham ghi log WARN
     public static void warn (String message) {
         Log.warn(message);
     }
@@ -23,7 +21,7 @@ public class Log {
         Log.warn(object);
     }
 
-    //Error Level Logs
+    // Ham ghi log Error
     public static void error (String message) {
         Log.error(message);
     }
@@ -31,12 +29,7 @@ public class Log {
         Log.error(object);
     }
 
-    //Fatal Level Logs
-    public static void fatal (String message) {
-        Log.fatal(message);
-    }
-
-    //Debug Level Logs
+    // Ham ghi log DEBUG
     public static void debug (String message) {
         Log.debug(message);
     }

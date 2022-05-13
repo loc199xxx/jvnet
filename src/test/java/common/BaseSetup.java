@@ -17,19 +17,11 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class BaseSetup {
-    //    public static void main(String[] args) throws Exception{
-//        System.setProperty("webdriver.firefox.driver",System.getProperty("user.dir") + File.separator + "geckordriver.exe");
-//        WebDriver driver = new FirefoxDriver();
-//        driver.manage().window().maximize();
-//        driver.navigate().to("https://opensource-demo.orangehrmlive.com/");
-//        Thread.sleep(2000);
-//    }
     private WebDriver driver;
     static String driverPath ="src/main/resources/driver/";
     public static String BaseURl ="https://jvnet.vn/";
 
-//    @BeforeSuite
-//    @Parameters({"browserType"})
+// Hàm khoi dong trinh duyet truyen vao ten trinh duyet
     public void initTestBaseSetup(String browserType){
         try{
             Log.info("Truy cập website: "+BaseURl);
@@ -39,12 +31,11 @@ public class BaseSetup {
         }catch (Exception e){
             Log.error("Có lỗi xảy ra khi truy cập website. "+ BaseURl);
         }
-
     }
     public WebDriver getDriver(){
         return driver;
     }
-
+    // chon trinh duyet de chay
     private void setDriver(String browserType, String appURL){
         switch (browserType.trim().toLowerCase()) {
             case "firefox":
@@ -54,11 +45,12 @@ public class BaseSetup {
                 driver = initChromeDriver(appURL);
                 break;
             default:
+                // mac dinh chay Chrome
                 Log.info("Trình duyệt'" + browserType + "' không được hỗ trợ, Khởi chạy trình duyệt Chrome");
                 driver = initChromeDriver(appURL);
         }
     }
-
+// ham khoi tao trinh duyet firefox
     private static WebDriver initFirefoxDriver(String appURL){
         try {
             Log.info("Khởi chạy Firefox...............................");
@@ -74,6 +66,7 @@ public class BaseSetup {
             return null;
         }
     }
+    // ham khoi tao trinh duyet chrome
     private static WebDriver initChromeDriver(String appURL){
         try {
             Log.info("Khởi chạy Chrome...............................");

@@ -42,7 +42,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.clickSubscribe();
     }
 
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test           // gom nhom cac testcase de chay
     public void TC012_BoTrongHoVaTen(){
         Log.info("Đang chạy TC012: Bỏ trống trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -51,7 +51,7 @@ public class SubscribeTest extends BaseSetup{
         Assert.assertTrue(Subscribe.SubmitAndVerifyNotif("Cột được yêu cầu."));
         Subscribe.clickCloseSub();
     }
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test
     public void TC013_NhapToanSpace(){
         Log.info("Đang chạy TC013: Nhập toàn space trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -60,7 +60,7 @@ public class SubscribeTest extends BaseSetup{
         Assert.assertTrue(Subscribe.SubmitAndVerifyNotif("Cột được yêu cầu."));
         Subscribe.clickCloseSub();
     }
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test
     public void TC014_NhapSpaceDauCuoi(){
         Log.info("Đang chạy TC014: Nhập space đầu cuối trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -69,7 +69,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
 
     }
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test
     public void TC015_NhapSo() throws InterruptedException {
         Log.info("Đang chạy TC015: Nhập số trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -78,7 +78,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
 
     }
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test
     public void TC016_NhapChu() throws InterruptedException {
         Log.info("Đang chạy TC016: Nhập chữ trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -87,7 +87,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
         Subscribe.waitFormClosed();
     }
-    @Test(groups = {"subscribe","hoten", "validate"})
+    @Test
     public void TC017_NhapKyTuDacBiet(){
         Log.info("Đang chạy TC017: nhập ký tự đặc biệt trường Họ và Tên");
         commonBase = new commonBase(driver);
@@ -96,7 +96,7 @@ public class SubscribeTest extends BaseSetup{
         Assert.assertTrue(Subscribe.SubmitAndVerifyNotif("Họ và tên không hợp lệ"));
         Subscribe.clickCloseSub();
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC018_BoTrongDiaChi(){
         Log.info("Đang chạy TC018: Bỏ trống trường địa chỉ");
         commonBase = new commonBase(driver);
@@ -105,7 +105,7 @@ public class SubscribeTest extends BaseSetup{
         Assert.assertTrue(Subscribe.SubmitAndVerifyNotif("Cột được yêu cầu."));
         Subscribe.clickCloseSub();
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC019_NhapSpaceDiaChi(){
         Log.info("Đang chạy TC019: Nhập toàn space trường địa chỉ");
         commonBase = new commonBase(driver);
@@ -114,7 +114,7 @@ public class SubscribeTest extends BaseSetup{
         Assert.assertTrue(Subscribe.SubmitAndVerifyNotif("Cột được yêu cầu."));
         Subscribe.clickCloseSub();
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC020_NhapSpaceDauCuoi(){
         Log.info("Đang chạy TC020: Nhập space đầu cuối trường địa chỉ");
         commonBase = new commonBase(driver);
@@ -123,7 +123,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
 
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC021_NhapSoVaoDiaChi(){
         Log.info("Đang chạy TC021: nhập số trường địa chỉ");
         commonBase = new commonBase(driver);
@@ -132,7 +132,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
 
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC022_NhapChuVaoDiaChi(){
         Log.info("Đang chạy TC022: nhập chữ vao trường địa chỉ");
         commonBase = new commonBase(driver);
@@ -141,7 +141,7 @@ public class SubscribeTest extends BaseSetup{
         Subscribe.checkSuccessAndBackHome("Đăng ký thành công");
 
     }
-    @Test(groups = {"subscribe","diachi", "validate"})
+    @Test
     public void TC023_NhapKyTuDacBietVaoDiaChi() {
         Log.info("Đang chạy TC023: nhập ký tự đặc biệt trường địa chỉ");
         commonBase = new commonBase(driver);
